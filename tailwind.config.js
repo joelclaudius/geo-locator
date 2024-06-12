@@ -9,6 +9,7 @@ module.exports = {
         "custom-white": "#FFFFFF",
         "footer-color": "#EAE6E3",
         "ondemand-color": "#F3F3F3",
+        "footer-one": "#0D0F83",
       },
     },
   },

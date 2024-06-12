@@ -46,27 +46,39 @@ export default function App() {
   }
 
   return (
-    <div>
-      <button onClick={handleClick} disabled={isLoading}>
-        Get my position
-      </button>
-
-      {isLoading && <p>Loading position...</p>}
-      {error && <p>{error}</p>}
-      {!isLoading && !error && lat && lng && (
-        <p>
-          Your GPS position:{" "}
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={`https://www.openstreetmap.org/#map=16/${lat}/${lng}`}
-          >
-            {lat}, {lng}
-          </a>
-        </p>
-      )}
-
-      <p>You requested position {countClicks} times</p>
+    <div className="bg-footer-color shadow-lg py-20 pb-[400px] px-20 grid grid-cols-1 gap-y-10">
+      <div className="flex justify-center ">
+        <button
+          onClick={handleClick}
+          disabled={isLoading}
+          className="uppercase p-2 border-2 border-blue-700 rounded-full hover:bg-blue-300"
+        >
+          Get my position
+        </button>
+      </div>
+      <div className="flex justify-center">
+        {isLoading && <p>Loading position...</p>}
+        {error && <p>{error}</p>}
+        {!isLoading && !error && lat && lng && (
+          <p className="">
+            Your GPS position:{" "}
+            <div>
+              {" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={`https://www.openstreetmap.org/#map=16/${lat}/${lng}`}
+                className="font-bold hover:underline text-footer-one"
+              >
+                {lat}, {lng}
+              </a>
+            </div>
+          </p>
+        )}
+      </div>
+      <di className="flex justify-center">
+        <p className="italic">You requested position {countClicks} times</p>
+      </di>
     </div>
   );
 }
